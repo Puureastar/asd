@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="电脑维修服务须知：清灰换硅脂、液金维护、配件加装、更换屏幕/C面、售后与免责条款。" />
+  <meta name="theme-color" content="#111827" />
+  <title>沙河付费维修网页</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --warning-bg: #fff7ed;
+      --warning-line: #fed7aa;
+      --warning-text: #9a3412;
+      --danger-bg: #fef2f2;
+      --danger-line: #fecaca;
+      --danger-text: #991b1b;
+      --success-bg: #ecfdf5;
+      --success-line: #bbf7d0;
+      --success-text: #166534;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 34rem),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 28rem),
+        var(--bg);
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), #60a5fa);
+      color: white;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.24);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      background: #eef2ff;
+      color: var(--primary-dark);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 74px 20px 34px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-card,
+    .panel,
+    .price-card,
+    .notice,
+    .flow-card,
+    .link-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card { padding: 34px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--primary-dark);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+    }
+
+    .lead {
+      font-size: 18px;
+      color: #374151;
+      margin: 0 0 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--primary);
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-secondary {
+      background: #fff;
+      color: #1f2937;
+      border-color: var(--line);
+    }
+
+    .summary-panel { padding: 24px; }
+    .summary-panel h2 { margin-top: 0; font-size: 18px; }
+
+    .summary-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-list li {
+      display: flex;
+      gap: 10px;
+      color: #374151;
+    }
+
+    .check {
+      flex: 0 0 auto;
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px 72px;
+    }
+
+    section {
+      scroll-margin-top: 84px;
+      margin-top: 30px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: clamp(24px, 3vw, 36px);
+      letter-spacing: -0.04em;
+    }
+
+    .section-desc {
+      margin: -4px 0 20px;
+      color: var(--muted);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .price-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 100%;
+    }
+
+    .price-card.featured {
+      border-color: #bfdbfe;
+      background: linear-gradient(180deg, #eff6ff, #fff 46%);
+    }
+
+    .price-card.disabled {
+      position: relative;
+      overflow: hidden;
+      background: #f3f4f6;
+      border-color: #d1d5db;
+      color: #9ca3af;
+      box-shadow: none;
+      filter: grayscale(35%);
+    }
+
+    .price-card.disabled::after {
+      content: "暂不接单";
+      position: absolute;
+      top: 16px;
+      right: -34px;
+      width: 140px;
+      padding: 5px 0;
+      text-align: center;
+      color: #ffffff;
+      background: #6b7280;
+      font-size: 12px;
+      font-weight: 900;
+      transform: rotate(35deg);
+      letter-spacing: 0.08em;
+    }
+
+    .price-card.disabled .price-title,
+    .price-card.disabled .price,
+    .price-card.disabled .card-list {
+      color: #9ca3af;
+    }
+
+    .price-card.disabled .tag {
+      color: #6b7280;
+      background: #e5e7eb;
+      border-color: #d1d5db;
+    }
+
+    .price-card.disabled .disabled-note {
+      margin: 2px 0 0;
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: #374151;
+      background: #e5e7eb;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .price-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .tag {
+      flex: 0 0 auto;
+      font-size: 12px;
+      color: var(--primary-dark);
+      background: #dbeafe;
+      border: 1px solid #bfdbfe;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .price {
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .price small {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .card-list {
+      padding-left: 18px;
+      margin: 0;
+      color: #374151;
+    }
+
+    .card-list li + li { margin-top: 7px; }
+
+    .notice {
+      padding: 20px;
+      margin-top: 16px;
+      box-shadow: none;
+    }
+
+    .notice.warning {
+      background: var(--warning-bg);
+      border-color: var(--warning-line);
+      color: var(--warning-text);
+    }
+
+    .notice.danger {
+      background: var(--danger-bg);
+      border-color: var(--danger-line);
+      color: var(--danger-text);
+    }
+
+    .notice.success {
+      background: var(--success-bg);
+      border-color: var(--success-line);
+      color: var(--success-text);
+    }
+
+    .panel { padding: 26px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .info-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .info-list li + li { margin-top: 9px; }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .flow-card {
+      padding: 18px;
+      box-shadow: none;
+    }
+
+    .step {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #eef2ff;
+      color: var(--primary-dark);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .flow-card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .flow-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .examples {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .example {
+      padding: 13px 15px;
+      border-radius: 14px;
+      background: #f9fafb;
+      border: 1px solid var(--line);
+      font-weight: 700;
+    }
+
+    .confirm-box {
+      background: #111827;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .confirm-box code {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #bfdbfe;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      white-space: normal;
+    }
+
+    .footer-links {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .link-card {
+      padding: 22px;
+      box-shadow: none;
+    }
+
+    .link-card h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .link-list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      color: #1f2937;
+      background: #f9fafb;
+      border: 1px solid var(--line);
+    }
+
+    .link-list a:hover {
+      color: var(--primary-dark);
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      padding: 28px 20px 38px;
+      font-size: 14px;
+    }
+
+    .backtop {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #111827;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(17, 24, 39, 0.22);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
+
+      .price-grid,
+      .flow-grid,
+      .two-col,
+      .footer-links {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links { width: 100%; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-card,
+      .panel,
+      .summary-panel {
+        padding: 22px;
+      }
+
+      .price { font-size: 30px; }
+
+      .nav-links a {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .hero-actions .btn { width: 100%; }
+    }
+
+    @media print {
+      .site-header,
+      .backtop,
+      .hero-actions {
+        display: none;
+      }
+
+      body { background: #fff; }
+
+      .hero,
+      main,
+      .footer-links {
+        max-width: none;
+      }
+
+      .hero-card,
+      .panel,
+      .price-card,
+      .notice,
+      .flow-card,
+      .confirm-box,
+      .link-card {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true">修</span>
+        <span>电脑维修服务须知</span>
+      </div>
+      <div class="nav-links">
+        <a href="#pricing">收费标准</a>
+        <a href="#customer">客户义务</a>
+        <a href="#terms">免责条款</a>
+        <a href="#aftercare">取机售后</a>
+        <a href="#confirm">服务确认</a>
+        <a href="https://qm.qq.com/q/xDswdcYWxq">联系我</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-card">
+      <span class="eyebrow">送修前请务必阅读</span>
+      <h1>电脑维修服务须知</h1>
+      <p class="lead">
+        感谢您选择我的电脑维修服务。为保障双方权益，请在送修前仔细阅读服务项目、收费标准、风险提示、售后规则与确认方式。
+      </p>
+      <div class="notice danger">
+        一旦您将设备交由我处理，或通过文字/语音确认服务，即视为您已充分理解并同意本须知所有条款。
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#pricing">查看收费标准</a>
+        <a class="btn btn-secondary" href="#confirm">查看确认格式</a>
+      </div>
+    </div>
+
+    <aside class="summary-panel">
+      <h2>送修前重点提醒</h2>
+      <ul class="summary-list">
+        <li><span class="check">✓</span><span>请提前备份重要数据，维修方不承担数据丢失责任。</span></li>
+        <li><span class="check">✓</span><span>有进水、摔落、私拆、屏幕异常等情况请主动说明。</span></li>
+        <li><span class="check">✓</span><span>液金服务存在固有风险，无售后、无退款、无赔偿。</span></li>
+        <li><span class="check">✓</span><span>取机时请当场开机验机，确认外观、功能和性能正常后再离开。</span></li>
+      </ul>
+    </aside>
+  </section>
+
+  <main>
+    <section id="pricing">
+      <h2 class="section-title">一、服务项目及收费标准</h2>
+      <p class="section-desc">以下为常见服务手工费与维护项目，复杂情况会在维修前沟通确认。</p>
+
+      <div class="price-grid">
+        <article class="price-card">
+          <h3 class="price-title">普通笔记本清灰换硅脂 <span class="tag">常规</span></h3>
+          <div class="price">40元</div>
+          <ul class="card-list">
+            <li>包含整机清灰</li>
+            <li>更换 CPU / GPU 导热硅脂</li>
+            <li>更换7950相变片：+15元/项<strong>相变片使用霍尼韦尔 7950，相变片购自淘宝店“极客温控”，信誉可查</strong></li>
+            <li>主板倒装机型：+10元</li>
+          </ul>
+        </article>
+
+        <article class="price-card featured disabled">
+          <h3 class="price-title">液金笔记本清灰维护 <span class="tag">暂不接单</span></h3>
+          <div class="price">120-140元</div>
+          <ul class="card-list">
+            <li>仅 CPU 使用液金：120元</li>
+            <li>CPU + GPU 均使用液金：140元</li>
+            <li>默认包含整机清灰、液金区域安全清洁</li>
+            <li>包含更换相变片、导热凝胶等辅助导热材料</li>
+          </ul>
+          <p class="disabled-note">更换液金费时，暂时不接</p>
+        </article>
+
+        <article class="price-card">
+          <h3 class="price-title">其他常见服务 <span class="tag">手工费</span></h3>
+          <div class="price">15元起</div>
+          <ul class="card-list">
+            <li>更换屏幕或更换 C 面：80元/次</li>
+            <li>原则上不接更换 A 壳，风险极大；如客户仍需处理，相关风险不予承担</li>
+            <li>单独加装硬盘、内存或简易部件：15元</li>
+            <li>同时进行其他付费维修服务时，简易加装免手工费</li>
+            <li>用户自行拆机导致的问题，如螺丝滑丝：20元/粒或按实际修复难度计</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="notice warning">
+        <strong>液金重要提示：</strong>液态金属具有强导电性与腐蚀性，存在渗漏、短路、主板腐蚀甚至永久损坏风险。本服务不承担任何因液金特性或操作导致的硬件损坏责任。接受即视为自愿承担全部风险，且无售后、无退款、无赔偿。
+      </div>
+
+      <div class="two-col" style="margin-top:16px;">
+        <div class="panel">
+          <h3>自带耗材说明</h3>
+          <p>如您自带硅脂、相变片、风扇、内存等配件或耗材，人工服务费不予减免。仍需进行兼容性评估与安装测试；若因自带配件质量问题导致损坏，责任由客户自行承担。</p>
+        </div>
+        <div class="panel">
+          <h3>配件代购服务</h3>
+          <p>可代购硬盘、内存、风扇、电池、屏幕、电源适配器、键盘模组等配件。按淘宝平台当日实价收费，不加价、不赚差价。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="customer">
+      <h2 class="section-title">二、客户义务：请务必提前告知</h2>
+      <p class="section-desc">为避免误判、重复拆装或意外损坏，请在送修时主动说明设备已知问题或历史状况。</p>
+      <div class="panel">
+        <div class="two-col">
+          <ul class="info-list">
+            <li>风扇异响、转速异常</li>
+            <li>键盘按键粘滞、失灵、进液痕迹</li>
+            <li>曾自行拆机、清灰、更换部件</li>
+            <li>摔落、进水、挤压、电池鼓包、外壳变形</li>
+          </ul>
+          <ul class="info-list">
+            <li>屏幕坏点、漏液、背光不均等显示问题</li>
+            <li>系统频繁蓝屏、死机</li>
+            <li>无法充电、接口异常</li>
+            <li>其他可能影响维修判断的“暗病”</li>
+          </ul>
+        </div>
+        <div class="notice danger">
+          隐瞒已知缺陷可能导致维修失败、二次损伤或额外费用，此类情况恕不退费或担责。
+        </div>
+      </div>
+    </section>
+
+    <section id="terms">
+      <h2 class="section-title">三、服务流程与免责条款</h2>
+      <div class="flow-grid">
+        <article class="flow-card">
+          <div class="step">1</div>
+          <h3>基础检测</h3>
+          <p>维修前进行基础检测并告知设备现状。</p>
+        </article>
+        <article class="flow-card">
+          <div class="step">2</div>
+          <h3>风险提醒</h3>
+          <p>老旧设备、液金机型等无法 100% 排除意外风险。</p>
+        </article>
+        <article class="flow-card">
+          <div class="step">3</div>
+          <h3>继续处理</h3>
+          <p>过程中发现新问题，经您同意或提前授权后才继续处理。</p>
+        </article>
+        <article class="flow-card">
+          <div class="step">4</div>
+          <h3>数据自保</h3>
+          <p>请提前备份数据，维修方不承担任何数据丢失责任。</p>
+        </article>
+      </div>
+
+      <div class="notice warning">
+        <strong>以下情况不在服务保障范围内：</strong>设备老化、进水、摔损、私自改装、使用非原装配件；液金相关服务无任何形式售后保障；因客户未如实告知已有故障或配件导致的问题。
+      </div>
+    </section>
+
+    <section id="aftercare">
+      <h2 class="section-title">四、取机与售后</h2>
+      <div class="panel">
+        <ul class="info-list">
+          <li>请当场开机验机，确认外观、功能、性能正常后再离开。</li>
+          <li>离开后，除人为损坏外，非液金类服务原则上不受理售后争议。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="confirm">
+      <h2 class="section-title">五、服务确认方式</h2>
+      <p class="section-desc">服务地点在<strong>沙河雁北A419</strong>,为提高效率并避免误解，请在预约或送修时按以下格式发送确认信息。</p>
+
+      <div class="confirm-box">
+        <strong>确认格式：</strong><br />
+        <code>【电脑型号】+【需要XX服务】</code>
+        <p style="margin-bottom:0;">如涉及液金，请特别标注“【液金】”。液金机型务必提前联系确认，部分机型结构特殊，需评估风险后再接单。</p>
+        <p style="margin-bottom: 0; color: #6b7280; font-size: 14px;">
+  示例：联想拯救者 R9000P 2023 → 清灰换硅脂<br />
+  戴尔 G15 5530【液金】→ 清灰<br />
+  华硕 天选3 → 更换风扇 + 加装1TB固态<br />
+</p>
+      </div>
+    </section>
+  </main>
+
+  <section class="footer-links" id="links" aria-label="友情链接与联系方式">
+    <div class="link-card">
+      <h2>联系我</h2>
+      <p>点击按钮可以直接添加</p>
+      <div class="link-list">
+        <a href="https://qm.qq.com/q/xDswdcYWxq" target="_blank" rel="noopener">qq</a>
+      </div>
+    </div>
+    <div class="link-card">
+      <h2>友情链接</h2>
+      <div class="link-list">
+        <a href="https://qm.qq.com/q/3yNtupKvDW" target="_blank" rel="noopener">防空炮(本部)</a>
+        <a href="https://qm.qq.com/q/M1sgTgSjcu" target="_blank" rel="noopener">许纯之(沙河)</a>
+        <a href="https://qm.qq.com/q/krUrGAwpaM" target="_blank" rel="noopener">校园代跑（沙河本部都可）</a>
+        <a href="https://qm.qq.com/q/krUrGAwpaM" target="_blank" rel="noopener">网课代刷</a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 </p>
+  </footer>
+
+  <a class="backtop" href="#top" aria-label="返回顶部">↑</a>
+</body>
+</html>
