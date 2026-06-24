@@ -457,12 +457,29 @@
       white-space: normal;
     }
 
+    .location-highlight {
+      color: #dc2626;
+      font-weight: 900;
+    }
+
+    .adapter-alert {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      color: #7f1d1d;
+      background: #fef2f2;
+      border: 2px solid #ef4444;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(239, 68, 68, 0.14);
+    }
+
     .footer-links {
       max-width: 1120px;
       margin: 0 auto;
       padding: 0 20px 34px;
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: 1fr;
       gap: 16px;
     }
 
@@ -496,6 +513,22 @@
       position: relative;
       margin: 0;
       color: var(--muted);
+    }
+
+    .footer-links .link-card:first-child {
+      padding: 28px;
+    }
+
+    .footer-links .link-card:first-child h2 {
+      font-size: 28px;
+    }
+
+    .footer-links .link-card:first-child .contact-entry {
+      padding: 20px;
+    }
+
+    .footer-links .link-card:first-child .contact-entry-title strong {
+      font-size: 18px;
     }
 
     .link-list {
@@ -562,7 +595,6 @@
       font-weight: 700;
       line-height: 1.35;
     }
-
 
     .contact-grid {
       position: relative;
@@ -670,6 +702,45 @@
       line-height: 1.5;
     }
 
+    .friend-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px 18px;
+    }
+
+    .friend-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .friend-footer h2 {
+      flex: 0 0 auto;
+      margin: 0;
+      font-size: 15px;
+      color: #374151;
+    }
+
+    .friend-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+    }
+
+    .friend-list a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .friend-list a:hover {
+      color: var(--primary-dark);
+    }
+
     footer {
       border-top: 1px solid var(--line);
       color: var(--muted);
@@ -716,8 +787,11 @@
 
     @media (max-width: 720px) {
       .link-list,
-      .contact-grid {
+      .contact-grid,
+      .friend-footer-inner {
         grid-template-columns: 1fr;
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
 
@@ -804,6 +878,7 @@
       <ul class="summary-list">
         <li><span class="check">✓</span><span>请提前备份重要数据，维修方不承担数据丢失责任。</span></li>
         <li><span class="check">✓</span><span>有进水、摔落、私拆、屏幕异常等情况请主动说明。</span></li>
+        <li><span class="check">✓</span><span>送修时请带上常用电源适配器，便于开机、充电与压力测试。</span></li>
         <li><span class="check">✓</span><span>液金服务存在固有风险，无售后、无退款、无赔偿。</span></li>
         <li><span class="check">✓</span><span>取机时请当场开机验机，确认外观、功能和性能正常后再离开。</span></li>
       </ul>
@@ -934,12 +1009,13 @@
 
     <section id="confirm">
       <h2 class="section-title">五、服务确认方式</h2>
-      <p class="section-desc">服务地点在<strong>沙河雁北A419</strong>,为提高效率并避免误解，请在预约或送修时按以下格式发送确认信息。</p>
+      <p class="section-desc">服务地点在<strong class="location-highlight">沙河雁北A419</strong>,为提高效率并避免误解，请在预约或送修时按以下格式发送确认信息。</p>
 
       <div class="confirm-box">
         <strong>确认格式：</strong><br />
         <code>【电脑型号】+【需要XX服务】</code>
         <p style="margin-bottom:0;">如涉及液金，请特别标注“【液金】”。液金机型务必提前联系确认，部分机型结构特殊，需评估风险后再接单。</p>
+        <div class="adapter-alert">送修请务必带上电源适配器！！！</div>
         <p style="margin-bottom: 0; color: #6b7280; font-size: 14px;">
   示例：联想拯救者 R9000P 2023 → 清灰换硅脂<br />
   戴尔 G15 5530【液金】→ 清灰<br />
@@ -986,40 +1062,18 @@
         </article>
       </div>
     </div>
-    <div class="link-card">
-      <h2>友情链接</h2>
-      <div class="link-list">
-        <a href="https://qm.qq.com/q/3yNtupKvDW" target="_blank" rel="noopener">
-          <span class="link-icon" aria-hidden="true">🛡️</span>
-          <span class="link-text">
-            <strong>防空炮</strong>
-            <span>本部清灰推荐</span>
-          </span>
-        </a>
-        <a href="https://qm.qq.com/q/M1sgTgSjcu" target="_blank" rel="noopener">
-          <span class="link-icon" aria-hidden="true">✨</span>
-          <span class="link-text">
-            <strong>许纯之</strong>
-            <span>沙河同行</span>
-          </span>
-        </a>
-        <a href="https://qm.qq.com/q/krUrGAwpaM" target="_blank" rel="noopener">
-          <span class="link-icon" aria-hidden="true">🏃</span>
-          <span class="link-text">
-            <strong>校园代跑</strong>
-            <span>沙河 / 本部均可</span>
-          </span>
-        </a>
-        <a href="https://qm.qq.com/q/krUrGAwpaM" target="_blank" rel="noopener">
-          <span class="link-icon" aria-hidden="true">📚</span>
-          <span class="link-text">
-            <strong>网课代刷</strong>
-            <span>1</span>
-          </span>
-        </a>
-      </div>
-    </div>
+  </section>
 
+  <section class="friend-footer" aria-label="友情链接">
+    <div class="friend-footer-inner">
+      <h2>友情链接</h2>
+      <nav class="friend-list">
+        <a href="https://qm.qq.com/q/3yNtupKvDW" target="_blank" rel="noopener">防空炮</a>
+        <a href="https://qm.qq.com/q/M1sgTgSjcu" target="_blank" rel="noopener">许纯之</a>
+        <a href="https://qm.qq.com/q/krUrGAwpaM" target="_blank" rel="noopener">校园代跑</a>
+        <a href="https://qm.qq.com/q/krUrGAwpaM" target="_blank" rel="noopener">网课代刷</a>
+      </nav>
+    </div>
   </section>
 
   <footer>
